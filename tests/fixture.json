@@ -1,0 +1,8 @@
+{
+  "tool": "win-disk-health", "schemaVersion": 1, "capturedAt": "2026-01-01T00:00:00Z", "source": "fixture",
+  "disks": [
+    { "index": 1, "providerDeviceId": "0", "healthStatus": 0, "operationalStatus": [2] },
+    { "index": 2, "providerDeviceId": "1", "healthStatus": 1, "operationalStatus": [2, 5] }
+  ],
+  "issues": []
+}
