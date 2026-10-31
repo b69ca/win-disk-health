@@ -65,4 +65,8 @@ jobs:
         run: |
           (cd dist && sha256sum --check SHA256SUMS.txt)
           test "$GITHUB_REF_NAME" = v1.0.0
-          gh release create "$GITHUB_REF_NAME" dist/win-disk-health-1.0.0-win-x64.zip dist/SHA256SUMS.txt --verify-tag --title "win-disk-health $GITHUB_REF_NAME" --notes-file CHANGELOG.md
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" dist/win-disk-health-1.0.0-win-x64.zip dist/SHA256SUMS.txt
+          else
+            gh release create "$GITHUB_REF_NAME" dist/win-disk-health-1.0.0-win-x64.zip dist/SHA256SUMS.txt --verify-tag --title "win-disk-health $GITHUB_REF_NAME" --notes-file CHANGELOG.md
+          fi
